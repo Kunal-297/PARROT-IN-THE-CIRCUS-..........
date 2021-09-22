@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+class Parrot{
+    private:
+         static int unique_number;
+
+
+    public:
+        string Parrot_Name[15] , Parrot_Type[15], Parrot_colour[15];
+        char Parrot_skills[15];
+
+        void getparrotdetails()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                cout<< " Parrot " << i+1 << " Fill the Details : "<<endl;
+
+                cout << "Parrot Name : ";
+                cin >> Parrot_Name[i];
+
+                cout << "Parrot Type : ";
+                cin >> Parrot_Type[i];
+
+                cout << "Parrot Color : ";
+                cin >> Parrot_colour[i];
+
+                cout << "Is it able to talk [Type 'Y' for yes and 'N' for no ]   : ";
+                cin >> Parrot_skills[i];
+
+                cout << "\n\n";
+            }
+            
+        }
+
+        Parrot(){
+            unique_number ++;
+        };
+
+        void show_display_talking_parrots()
+        {
+            int talkingparrot_count = 0;
+            cout<<"List of talking parrots  : "<<endl;
+
+            while(talkingparrot_count < 7 )
+            {
+                for (int j = 0; j < 15; j++)
+                {
+                   if(Parrot_skills[j] == 'Y'){
+                        cout << "Parrot Name : " << Parrot_Name[j] << endl;          
+                        cout << "Parrot Type : " << Parrot_Type[j] << endl;
+                        cout << "Parrot Color : " << Parrot_colour[j] << endl;
+                        cout << "Unique Number : " << unique_number << endl;
+
+                        Parrot Obj;
+                        talkingparrot_count ++;
+
+                   } 
+                }
+                
+            }
+        }
+};
+
+int Parrot :: unique_number = 7000;
+
+int main()
+{
+   Parrot P;                                       
+   P.getparrotdetails();
+   P.show_display_talking_parrots();
+   return 0; 
+}
